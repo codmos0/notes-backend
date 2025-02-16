@@ -3,6 +3,7 @@ const cors = require('cors')
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use(express.static('dist'))
 
 const PORT = process.env.PORT || 3001
 
@@ -73,8 +74,6 @@ app.post('/api/notes', (req, res) => {
     }
     
     notes = notes.concat(note)
-
-    console.log(notes)
     
     res.json(note)
 })
